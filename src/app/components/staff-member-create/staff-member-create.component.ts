@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-staff-member-create',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./staff-member-create.component.css'],
 })
 export class StaffMemberCreateComponent implements OnInit {
-  constructor() {}
+  constructor(private modalController: ModalController) {}
 
   ngOnInit(): void {}
+
+  close() {
+    this.modalController.dismiss();
+  }
 }

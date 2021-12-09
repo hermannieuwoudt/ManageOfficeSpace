@@ -1,0 +1,27 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-nav-link routerDirection="back">
+        <ion-button color="primary" fill="clear">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-nav-link>
+    </ion-buttons>
+    <ion-title>Office</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar></ion-searchbar>
+  <ion-list>
+    <app-staff-member
+      [staffMember]="staffMember"
+      *ngFor="let staffMember of staffMembers"
+    >
+    </app-staff-member>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addStaffMember()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

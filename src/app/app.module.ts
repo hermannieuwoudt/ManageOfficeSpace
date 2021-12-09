@@ -11,6 +11,9 @@ import { StaffMemberComponent } from './components/staff-member/staff-member.com
 import { StaffMemberCreateComponent } from './components/staff-member-create/staff-member-create.component';
 import { OfficeItemComponent } from './components/office-item/office-item.component';
 import { OfficeContainerComponent } from './containers/office-container/office-container.component';
+import { OfficeDetailContainerComponent } from './containers/office-detail-container/office-detail-container.component';
+import { OfficePageComponent } from './containers/office-page/office-page.component';
+import { ListPopoverComponent } from './components/list-popover/list-popover.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { OfficeContainerComponent } from './containers/office-container/office-c
     StaffMemberCreateComponent,
     OfficeItemComponent,
     OfficeContainerComponent,
+    OfficeDetailContainerComponent,
+    OfficePageComponent,
+    ListPopoverComponent
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],

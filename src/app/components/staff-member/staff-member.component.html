@@ -1,1 +1,16 @@
-<p>staff-member works!</p>
+<ion-item lines="none">
+  <ion-avatar slot="start">
+    <ion-img [src]="staffMember.avatar"></ion-img>
+  </ion-avatar>
+  <ion-text slot="start" class="consumer-name">
+    {{ staffMember.firstName }} {{ staffMember.lastName }}
+  </ion-text>
+  <ion-button
+    slot="end"
+    color="medium"
+    fill="clear"
+    (click)="presentPopover($event)"
+  >
+    <ion-icon name="ellipsis-horizontal"></ion-icon>
+  </ion-button>
+</ion-item>

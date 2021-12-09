@@ -1,6 +1,14 @@
 <ion-header> All Offices </ion-header>
 <ion-content>
   <ion-list>
-    <app-office-item [office]= "office" *ngFor="let office of offices"> </app-office-item>
+    <app-office-item [office]="office" *ngFor="let office of offices">
+    </app-office-item>
   </ion-list>
+  <ion-nav-link [component]="nextComponent">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-nav-link>
 </ion-content>

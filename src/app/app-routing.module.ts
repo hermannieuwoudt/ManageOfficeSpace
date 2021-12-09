@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { OfficeContainerComponent } from './containers/office-container/office-container.component';
+import { OfficePageComponent } from './containers/office-page/office-page.component';
 
 const routes: Routes = [
   {
     path: 'offices',
-    component: OfficeContainerComponent,
+    component: OfficePageComponent,
     pathMatch: 'full'
   },
   {

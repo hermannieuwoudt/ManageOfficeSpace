@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { OfficeDetailContainerComponent } from 'src/app/containers/office-detail-container/office-detail-container.component';
 import { Office } from 'src/app/models/office';
 
 @Component({
@@ -8,6 +9,7 @@ import { Office } from 'src/app/models/office';
 })
 export class OfficeItemComponent implements OnInit {
   @Input() office: Office;
+  nextComponent = OfficeDetailContainerComponent;
   constructor() {}
 
   ngOnInit(): void {}
