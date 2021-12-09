@@ -14,6 +14,10 @@ import { OfficeContainerComponent } from './containers/office-container/office-c
 import { OfficeDetailContainerComponent } from './containers/office-detail-container/office-detail-container.component';
 import { OfficePageComponent } from './containers/office-page/office-page.component';
 import { ListPopoverComponent } from './components/list-popover/list-popover.component';
+import { DeleteStaffMemeberPopOverComponent } from './components/delete-staff-memeber-pop-over/delete-staff-memeber-pop-over.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StaffMemeberCreateAvatarComponent } from './components/staff-memeber-create-avatar/staff-memeber-create-avatar.component';
+import { StepsIndicatorComponent } from './components/steps-indicator/steps-indicator.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +29,21 @@ import { ListPopoverComponent } from './components/list-popover/list-popover.com
     OfficeContainerComponent,
     OfficeDetailContainerComponent,
     OfficePageComponent,
-    ListPopoverComponent
+    ListPopoverComponent,
+    DeleteStaffMemeberPopOverComponent,
+    StaffMemeberCreateAvatarComponent,
+    StepsIndicatorComponent
   ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  exports: [FormsModule],
 })
 export class AppModule {}

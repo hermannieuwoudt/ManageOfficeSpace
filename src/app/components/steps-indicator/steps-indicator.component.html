@@ -1,0 +1,17 @@
+<ion-grid>
+  <ion-row>
+    <ion-col class="ion-no-padding"> </ion-col>
+    <ion-col class="ion-no-padding" *ngFor="let item of arrayDone">
+      <div class="circle-done"></div>
+    </ion-col>
+    <ion-col class="ion-no-padding" *ngIf="!currentStepDone">
+      <div class="circle"></div>
+    </ion-col>
+    <ion-col class="ion-no-padding" *ngIf="currentStepDone">
+      <div class="circle-done"></div>
+    </ion-col>
+    <ion-col class="ion-no-padding" *ngFor="let item of arrayToDo; index as i">
+      <div class="circle-todo"></div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

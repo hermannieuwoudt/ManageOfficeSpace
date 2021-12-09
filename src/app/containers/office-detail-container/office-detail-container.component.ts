@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { PopoverController } from '@ionic/angular';
 import { StaffMemberCreateComponent } from 'src/app/components/staff-member-create/staff-member-create.component';
 import { Office } from 'src/app/models/office';
 import { StaffMember } from 'src/app/models/staff-memeber';
+import { StaffMemberService } from 'src/app/services/staff-memeber.service';
 
 @Component({
   selector: 'app-office-detail-container',
@@ -12,7 +13,7 @@ import { StaffMember } from 'src/app/models/staff-memeber';
 export class OfficeDetailContainerComponent implements OnInit {
   @Input() office: Office;
   staffMembers: StaffMember[];
-  constructor(private modalController: ModalController) {}
+  constructor(private staffMemberService: StaffMemberService) {}
 
   ngOnInit(): void {
     this.staffMembers = [
@@ -20,23 +21,18 @@ export class OfficeDetailContainerComponent implements OnInit {
         id: 380,
         firstName: 'Daniel',
         lastName: 'Novitzkas',
-        avatar: 'assets/avatars/Avatar1.svg',
+        avatar: '/assets/avatars/Avatar1.svg',
       },
       {
         id: 393,
         firstName: 'Jacques',
         lastName: 'Jordaan',
-        avatar: 'assets/avatars/Avatar2.svg',
+        avatar: '/assets/avatars/Avatar2.svg',
       },
     ];
   }
 
-  async addStaffMember() {
-    const addStaffMemberModal = await this.modalController.create({
-      id: 'AddStaffMemberModal',
-      component: StaffMemberCreateComponent,
-      cssClass: '',
-    });
-    return await addStaffMemberModal.present();
+  addStaffMember() {
+    this.staffMemberService.editCreateStaffMember(false, null);
   }
 }

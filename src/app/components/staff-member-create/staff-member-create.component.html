@@ -1,10 +1,79 @@
 <ion-header class="ion-no-border">
-    <ion-toolbar>
-      <ion-buttons slot="end">
-          <ion-button (click)="close()" color="primary" fill="clear">
-            <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
-          </ion-button>
-      </ion-buttons>
-      <ion-title>New Staff Memeber</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()" color="primary" fill="clear">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="isEdit">Edit Staff Memeber</ion-title>
+    <ion-title *ngIf="!isEdit">New Staff Memeber</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item mode="ios" lines="full" class="ion-no-padding">
+      <ion-input
+        type="text"
+        formControlName="firstName"
+        mode="ios"
+        autofocus="true"
+        autocomplete="false"
+        autocapitalize="false"
+        placeholder="First Name"
+        maxLength="40"
+      ></ion-input>
+    </ion-item>
+    <ion-note
+      *ngIf="
+        form?.controls['firstName']?.touched &&
+        form?.controls['firstName']?.errors
+      "
+      class="form-error"
+    >
+      Please enter a first name for the staff memeber
+    </ion-note>
+    <ion-item mode="ios" lines="full" class="ion-no-padding">
+      <ion-label mode="ios" position="stacked">Organisation</ion-label>
+      <ion-input
+        type="text"
+        formControlName="lastName"
+        mode="ios"
+        autofocus="true"
+        autocomplete="false"
+        autocapitalize="false"
+        placeholder="Last Name"
+        maxLength="40"
+      ></ion-input>
+    </ion-item>
+    <ion-note
+      *ngIf="
+        form?.controls['lastName']?.touched &&
+        form?.controls['lastName']?.errors
+      "
+      class="form-error"
+    >
+      Please enter a last name for the staff memeber
+    </ion-note>
+  </form>
+  <app-steps-indicator
+    [stepsAmount]="2"
+    [currentStep]="1"
+    [currentStepDone]="form.valid"
+  ></app-steps-indicator>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button
+        mode="ios"
+        class="default-button"
+        color="primary"
+        fill="solid"
+        (click)="next()"
+        [disabled]="form.invalid"
+      >
+        Next
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="primary" fill="clear">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()" color="primary" fill="clear">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="isEdit">Edit Staff Memeber</ion-title>
+    <ion-title *ngIf="!isEdit">New Staff Memeber</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item-group lines="none" class="card-container">
+    <ion-card *ngFor="let avatar of avatars" (click)="selectAvatar(avatar.url)">
+      <ion-avatar [ngClass]="{ active: avatar.url === selectedAvatar }">
+        <img [src]="avatar.url" />
+      </ion-avatar>
+    </ion-card>
+  </ion-item-group>
+  <div class="step-indicator-container">
+    <app-steps-indicator
+      [stepsAmount]="2"
+      [currentStep]="2"
+      [currentStepDone]="selectedAvatar ? true : false"
+    ></app-steps-indicator>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button
+        mode="ios"
+        class="default-button"
+        color="primary"
+        fill="solid"
+        (click)="addStaffMember()"
+      >
+        Add Staff Member
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
