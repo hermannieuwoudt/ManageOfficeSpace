@@ -20,13 +20,13 @@ export class OfficeDetailContainerComponent implements OnInit {
         id: 380,
         firstName: 'Daniel',
         lastName: 'Novitzkas',
-        avatar: '',
+        avatar: 'assets/avatars/Avatar1.svg',
       },
       {
         id: 393,
         firstName: 'Jacques',
         lastName: 'Jordaan',
-        avatar: '',
+        avatar: 'assets/avatars/Avatar2.svg',
       },
     ];
   }

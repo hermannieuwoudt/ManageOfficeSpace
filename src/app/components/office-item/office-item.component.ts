@@ -10,7 +10,10 @@ import { Office } from 'src/app/models/office';
 export class OfficeItemComponent implements OnInit {
   @Input() office: Office;
   nextComponent = OfficeDetailContainerComponent;
+  colourStrip: string;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.colourStrip = 'assets/colour-strips/blue.svg';
+  }
 }

@@ -5,7 +5,7 @@ import { Office } from 'src/app/models/office';
 @Component({
   selector: 'app-office-container',
   templateUrl: './office-container.component.html',
-  styleUrls: ['./office-container.component.css'],
+  styleUrls: ['./office-container.component.scss'],
 })
 export class OfficeContainerComponent implements OnInit {
   offices: Office[];

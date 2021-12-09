@@ -1,9 +1,7 @@
-<ion-nav-link
-  [component]="nextComponent"
-  [componentProps]="{ office: office }"
->
-  <ion-item-group>
-    <ion-item>
+<ion-nav-link [component]="nextComponent" [componentProps]="{ office: office }">
+  <ion-item-group class="office-block">
+    <img [src]="colourStrip" />
+    <ion-item lines="none">
       {{ office.name }}
     </ion-item>
   </ion-item-group>
