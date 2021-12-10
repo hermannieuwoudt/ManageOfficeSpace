@@ -2,15 +2,36 @@ import { Injectable } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { StaffMemberCreateComponent } from '../components/staff-member-create/staff-member-create.component';
 import { StaffMemeberCreateAvatarComponent } from '../components/staff-memeber-create-avatar/staff-memeber-create-avatar.component';
+import { StaffMemberApiService } from '../core/api-services/staff-member-api.service';
+import { Office } from '../models/office';
 import { StaffMember } from '../models/staff-memeber';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StaffMemberService {
-  constructor(private popoverController: PopoverController) {}
+  constructor(
+    private popoverController: PopoverController,
+    private staffMemberApiService: StaffMemberApiService
+  ) {}
 
-  async editCreateStaffMember(isEdit: boolean, staffMember: StaffMember) {
+  createStaffMember(staffMember: StaffMember) {
+    this.staffMemberApiService.create(staffMember);
+  }
+
+  updateStaffMember(staffMember: StaffMember) {
+    this.staffMemberApiService.update(staffMember);
+  }
+
+  deleteStaffMember(staffMember: StaffMember) {
+    this.staffMemberApiService.destroy(staffMember.id);
+  }
+
+  async editCreateStaffMember(
+    isEdit: boolean,
+    staffMember: StaffMember,
+    officeId: string
+  ) {
     const popover = await this.popoverController.create({
       component: StaffMemberCreateComponent,
       translucent: true,
@@ -28,14 +49,18 @@ export class StaffMemberService {
           firstName: dataReturned.data.firstName,
           lastName: dataReturned.data.lastName,
         };
-        this.editCreateStaffMemberAvatar(isEdit, newStaffMember);
+        this.editCreateStaffMemberAvatar(isEdit, newStaffMember, officeId);
       }
     });
 
     return await popover.present();
   }
 
-  async editCreateStaffMemberAvatar(isEdit: boolean, staffMember: StaffMember) {
+  async editCreateStaffMemberAvatar(
+    isEdit: boolean,
+    staffMember: StaffMember,
+    officeId: string
+  ) {
     const popover = await this.popoverController.create({
       component: StaffMemeberCreateAvatarComponent,
       translucent: true,
@@ -49,14 +74,19 @@ export class StaffMemberService {
     popover.onDidDismiss().then((dataReturned) => {
       if (dataReturned !== null && dataReturned.data) {
         if (dataReturned.data === 'back') {
-          this.editCreateStaffMember(isEdit, staffMember);
+          this.editCreateStaffMember(isEdit, staffMember, officeId);
         }
         if (dataReturned.data.avatar) {
           const newStaffMember = {
             ...staffMember,
-            avatar: dataReturned.data.avatar
+            avatar: dataReturned.data.avatar,
+            officeId,
           };
-          console.log(newStaffMember);
+          if (isEdit) {
+            this.updateStaffMember(newStaffMember);
+          } else {
+            this.createStaffMember(newStaffMember);
+          }
         }
       }
     });

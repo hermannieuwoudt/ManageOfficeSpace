@@ -30,8 +30,10 @@ export class OfficeContainerComponent implements OnInit {
   }
 
   getStaffMembersCount(office) {
-    return this.staffMembers.filter(
-      (staffMember) => staffMember.officeId === office.id
-    ).length;
+    if (this.staffMembers) {
+      return this.staffMembers.filter(
+        (staffMember) => staffMember.officeId === office.id
+      ).length;
+    }
   }
 }

@@ -10,15 +10,21 @@ import { Office } from 'src/app/models/office';
 export class OfficeItemComponent implements OnInit {
   @Input() office: Office;
   @Input() staffMembersCount: number;
-  nextComponent = OfficeDetailContainerComponent;
+  @Input() navigateToDetail: boolean;
+  nextComponent: any;
   colourStrip: string;
   amount: number;
-  showMoreDetail= false;
+  showMoreDetail = false;
 
   constructor() {}
 
   ngOnInit(): void {
     this.colourStrip = 'assets/colour-strips/blue.svg';
+    if (this.navigateToDetail) {
+      this.nextComponent = OfficeDetailContainerComponent;
+    } else {
+      this.nextComponent = '';
+    }
   }
 
   down(ev) {

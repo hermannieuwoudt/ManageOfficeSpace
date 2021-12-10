@@ -8,6 +8,7 @@
     <app-office-item
       [office]="office"
       [staffMembersCount]="getStaffMembersCount(office)"
+      [navigateToDetail]="true"
       *ngFor="let office of offices"
     >
     </app-office-item>

@@ -56,7 +56,6 @@ export class StaffMemberService {
             ...staffMember,
             avatar: dataReturned.data.avatar
           };
-          console.log(newStaffMember);
         }
       }
     });

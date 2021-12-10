@@ -11,7 +11,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-searchbar></ion-searchbar>
+  <app-office-item
+    [office]="office"
+    [staffMembersCount]="staffMembers?.length"
+    [navigateToDetail]="false"
+  >
+  </app-office-item>
+  <ion-searchbar mode="ios" placeholder="Search"></ion-searchbar>
   <ion-list>
     <app-staff-member
       [staffMember]="staffMember"

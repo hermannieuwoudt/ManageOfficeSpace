@@ -16,35 +16,13 @@ export class StaffMemeberCreateAvatarComponent implements OnInit {
   constructor(private popoverController: PopoverController) {}
 
   ngOnInit(): void {
-    console.log(this.staffMember.avatar);
     if (!this.isEdit) {
-      // this.form = this.formBuilder.group({
-      //   avatar: new FormControl(
-      //     null,
-      //     Validators.compose([Validators.required])
-      //   ),
-      //   lastName: new FormControl(
-      //     null,
-      //     Validators.compose([Validators.required])
-      //   ),
-      // });
     } else {
-      this.selectedAvatar  = this.staffMember.avatar
-      // this.form = this.formBuilder.group({
-      //   firstName: new FormControl(
-      //     this.staffMember.firstName,
-      //     Validators.compose([Validators.required])
-      //   ),
-      //   lastName: new FormControl(
-      //     this.staffMember.firstName,
-      //     Validators.compose([Validators.required])
-      //   ),
-      // });
+      this.selectedAvatar = this.staffMember.avatar;
     }
   }
 
   selectAvatar(avatar: string) {
-    console.log(avatar);
     this.selectedAvatar = avatar;
     // this.close({ avatar });
   }

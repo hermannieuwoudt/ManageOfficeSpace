@@ -54,7 +54,7 @@ export class StaffMemberComponent implements OnInit {
           console.log('keep');
         }
         if (dataReturned.data === 'delete') {
-          console.log('delete');
+          this.staffMemberService.deleteStaffMember(this.staffMember);
         }
         if (dataReturned.data === 'back') {
           this.presentPopover();
@@ -66,7 +66,10 @@ export class StaffMemberComponent implements OnInit {
   }
 
   editStaffMember() {
-    this.staffMemberService.editCreateStaffMember(true, this.staffMember);
+    this.staffMemberService.editCreateStaffMember(
+      true,
+      this.staffMember,
+      this.staffMember.officeId
+    );
   }
-
 }

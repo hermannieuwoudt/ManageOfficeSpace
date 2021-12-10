@@ -42,7 +42,7 @@ export class StaffMemberApiService {
       this.firestore,
       `staffMembers/${staffMember.id}`
     );
-    return updateDoc(staffMemberRef, { staffMember });
+    return updateDoc(staffMemberRef, { ...staffMember });
   }
 
   destroy(id: string) {
