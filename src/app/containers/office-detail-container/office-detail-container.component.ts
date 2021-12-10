@@ -13,22 +13,11 @@ import { StaffMemberService } from 'src/app/services/staff-memeber.service';
 })
 export class OfficeDetailContainerComponent implements OnInit {
   @Input() office: Office;
-  staffMembers: StaffMember[];
-  constructor(
-    private staffMemberService: StaffMemberService,
-    private staffMemberApiService: StaffMemberApiService
-  ) {}
+  @Input() staffMembers: StaffMember[];
 
-  ngOnInit(): void {
-    this.staffMemberApiService
-      .index()
-      .subscribe(
-        (staffMembers) =>
-          (this.staffMembers = staffMembers.filter(
-            (staffMember) => staffMember.officeId === this.office.id
-          ))
-      );
-  }
+  constructor(private staffMemberService: StaffMemberService) {}
+
+  ngOnInit(): void {}
 
   addStaffMember() {
     this.staffMemberService.editCreateStaffMember(false, null);

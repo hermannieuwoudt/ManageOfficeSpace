@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OfficeCreateComponent } from 'src/app/components/office-create/office-create.component';
 import { OfficeApiService } from 'src/app/core/api-services/office-api.service copy';
+import { StaffMemberApiService } from 'src/app/core/api-services/staff-member-api.service';
 import { Office } from 'src/app/models/office';
+import { StaffMember } from 'src/app/models/staff-memeber';
 
 @Component({
   selector: 'app-office-container',
@@ -10,12 +12,26 @@ import { Office } from 'src/app/models/office';
 })
 export class OfficeContainerComponent implements OnInit {
   offices: Office[];
+  staffMembers: StaffMember[];
   nextComponent = OfficeCreateComponent;
-  constructor(private officeApiService: OfficeApiService) {}
+  constructor(
+    private officeApiService: OfficeApiService,
+    private staffMemberApiService: StaffMemberApiService
+  ) {}
 
   ngOnInit(): void {
     this.officeApiService
       .index()
       .subscribe((offices) => (this.offices = offices));
+
+    this.staffMemberApiService
+      .index()
+      .subscribe((staffMembers) => (this.staffMembers = staffMembers));
+  }
+
+  getStaffMembersCount(office) {
+    return this.staffMembers.filter(
+      (staffMember) => staffMember.officeId === office.id
+    ).length;
   }
 }

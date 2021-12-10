@@ -1,7 +1,15 @@
-<ion-header> All Offices </ion-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title color="dark"> All Offices </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <ion-list>
-    <app-office-item [office]="office" *ngFor="let office of offices">
+    <app-office-item
+      [office]="office"
+      [staffMembersCount]="getStaffMembersCount(office)"
+      *ngFor="let office of offices"
+    >
     </app-office-item>
   </ion-list>
   <ion-nav-link [component]="nextComponent">

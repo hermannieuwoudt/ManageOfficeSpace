@@ -1,0 +1,51 @@
+ion-list {
+  width: 100%;
+}
+
+ion-icon {
+  width: 17px;
+}
+
+ion-item-divider {
+  min-height: 6px;
+  margin: auto;
+  border-bottom: 0.4px solid #0D4477;
+}
+
+
+
+.office-block {
+  display: flex;
+  margin: 16px;
+  border: solid 1px #e8f3fc;
+  border-left: none;
+  border-radius: 8px;
+}
+
+img {
+  width: 12px;
+  object-fit: cover;
+}
+
+.office-name {
+  font-weight: 800;
+  font-size: 24px !important;
+}
+
+.staff-amount {
+  margin-left: 12px;
+  font-size: 12px;
+  font-family: "Inter";
+}
+
+.more-info-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+
+  ion-text {
+    font-size: 12px;
+    font-family: Inter;
+    margin-right: 12px;
+  }
+}
