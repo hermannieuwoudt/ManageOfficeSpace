@@ -1,5 +1,5 @@
 export interface Office {
-  id?: number;
+  id?: string;
   name?: string;
   physicalAddress: string;
   emailAddress: string;
@@ -9,7 +9,7 @@ export interface Office {
 }
 
 export const mockOffice: Office = {
-  id: 380,
+  id: 'jHLbN9LV6ivXcT9yHPJE',
   name: 'Specno',
   physicalAddress: '10 Willie Van Schoor Dr, Bo Oakdale, C...',
   emailAddress: 'info@specno.com',

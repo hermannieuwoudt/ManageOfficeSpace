@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { StaffMemberCreateComponent } from 'src/app/components/staff-member-create/staff-member-create.component';
+import { StaffMemberApiService } from 'src/app/core/api-services/staff-member-api.service';
 import { Office } from 'src/app/models/office';
 import { StaffMember } from 'src/app/models/staff-memeber';
 import { StaffMemberService } from 'src/app/services/staff-memeber.service';
@@ -13,23 +14,20 @@ import { StaffMemberService } from 'src/app/services/staff-memeber.service';
 export class OfficeDetailContainerComponent implements OnInit {
   @Input() office: Office;
   staffMembers: StaffMember[];
-  constructor(private staffMemberService: StaffMemberService) {}
+  constructor(
+    private staffMemberService: StaffMemberService,
+    private staffMemberApiService: StaffMemberApiService
+  ) {}
 
   ngOnInit(): void {
-    this.staffMembers = [
-      {
-        id: 380,
-        firstName: 'Daniel',
-        lastName: 'Novitzkas',
-        avatar: '/assets/avatars/Avatar1.svg',
-      },
-      {
-        id: 393,
-        firstName: 'Jacques',
-        lastName: 'Jordaan',
-        avatar: '/assets/avatars/Avatar2.svg',
-      },
-    ];
+    this.staffMemberApiService
+      .index()
+      .subscribe(
+        (staffMembers) =>
+          (this.staffMembers = staffMembers.filter(
+            (staffMember) => staffMember.officeId === this.office.id
+          ))
+      );
   }
 
   addStaffMember() {

@@ -1,35 +1,52 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {
+  Firestore,
+  collectionData,
+  docData,
+  addDoc,
+  collection,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from '@angular/fire/firestore';
 import { StaffMember } from 'src/app/models/staff-memeber';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StaffMemberApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private firestore: Firestore) {}
 
   index(): Observable<StaffMember[]> {
-    return this.http.get<StaffMember[]>(`v1/staff_member`);
+    const staffMembersRef = collection(this.firestore, 'staffMembers');
+    return collectionData(staffMembersRef, { idField: 'id' }) as Observable<
+      StaffMember[]
+    >;
   }
 
-  create(staffMember: StaffMember): Observable<StaffMember> {
-    return this.http.post<StaffMember>(`v1/staff_member`, {
-      staffMember,
-    });
+  create(staffMember: StaffMember) {
+    const staffMembersRef = collection(this.firestore, 'staffMembers');
+    return addDoc(staffMembersRef, staffMember);
   }
 
-  show(id: number): Observable<StaffMember> {
-    return this.http.get<StaffMember>(`v1/staff_member/${id}`);
+  show(id: string): Observable<StaffMember> {
+    const staffMemberRef = doc(this.firestore, `staffMembers/${id}`);
+    return docData(staffMemberRef, {
+      idField: 'id',
+    }) as Observable<StaffMember>;
   }
 
-  update(staffMember: StaffMember): Observable<StaffMember> {
-    return this.http.put<StaffMember>(`v1/staff_member/${staffMember.id}`, {
-      staffMember,
-    });
+  update(staffMember: StaffMember) {
+    const staffMemberRef = doc(
+      this.firestore,
+      `staffMembers/${staffMember.id}`
+    );
+    return updateDoc(staffMemberRef, { staffMember });
   }
 
-  destroy(id: number): Observable<any> {
-    return this.http.delete(`v1/staff_member/${id}`);
+  destroy(id: string) {
+    const staffMemberRef = doc(this.firestore, `staffMembers/${id}`);
+    return deleteDoc(staffMemberRef);
   }
 }

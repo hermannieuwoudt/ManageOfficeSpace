@@ -18,7 +18,9 @@ import { DeleteStaffMemeberPopOverComponent } from './components/delete-staff-me
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StaffMemeberCreateAvatarComponent } from './components/staff-memeber-create-avatar/staff-memeber-create-avatar.component';
 import { StepsIndicatorComponent } from './components/steps-indicator/steps-indicator.component';
-
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,7 @@ import { StepsIndicatorComponent } from './components/steps-indicator/steps-indi
     ListPopoverComponent,
     DeleteStaffMemeberPopOverComponent,
     StaffMemeberCreateAvatarComponent,
-    StepsIndicatorComponent
+    StepsIndicatorComponent,
   ],
   entryComponents: [],
   imports: [
@@ -40,7 +42,9 @@ import { StepsIndicatorComponent } from './components/steps-indicator/steps-indi
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

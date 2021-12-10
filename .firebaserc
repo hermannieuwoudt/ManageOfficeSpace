@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "manageofficespace": {
+      "hosting": {
+        "app": [
+          "manageofficespace"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "manageofficespace"
+  }
+}
