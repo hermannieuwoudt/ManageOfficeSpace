@@ -5,8 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { colours } from 'src/app/constants/colours';
 import { Office } from 'src/app/models/office';
+import { OfficeService } from 'src/app/services/office.service';
 
 @Component({
   selector: 'app-office-create',
@@ -19,7 +21,11 @@ export class OfficeCreateComponent implements OnInit {
   colours = colours;
   selectedColour: string;
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private officeService: OfficeService,
+    public navCtrl: NavController
+  ) {}
 
   ngOnInit(): void {
     if (!this.isEdit) {
@@ -74,7 +80,27 @@ export class OfficeCreateComponent implements OnInit {
     // this.close({ avatar });
   }
 
-  addOffice() {}
+  addOffice() {
+    this.officeService.createOffice(this.buildOffice());
+    this.navCtrl.pop();
+  }
 
-  updateOffice() {}
+  updateOffice() {
+    this.officeService.updateOffice({
+      ...this.buildOffice(),
+      id: this.office.id,
+    });
+    this.navCtrl.pop();
+  }
+
+  buildOffice(): Office {
+    return {
+      name: this.form.get('name').value,
+      physicalAddress: this.form.get('physicalAddress').value,
+      emailAddress: this.form.get('emailAddress').value,
+      phoneNumber: this.form.get('phoneNumber').value,
+      maximumCapacity: this.form.get('maximumCapacity').value,
+      colour: this.selectedColour,
+    };
+  }
 }

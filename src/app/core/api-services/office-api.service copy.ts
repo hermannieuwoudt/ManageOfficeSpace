@@ -38,7 +38,7 @@ export class OfficeApiService {
 
   update(office: Office) {
     const officeRef = doc(this.firestore, `offices/${office.id}`);
-    return updateDoc(officeRef, { office });
+    return updateDoc(officeRef, { ...office });
   }
 
   destroy(id: string) {
