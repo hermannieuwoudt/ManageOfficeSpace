@@ -1,12 +1,11 @@
-<ion-nav-link [component]="nextComponent" [componentProps]="{ office: office }">
-  <ion-item-group class="office-block">
+  <ion-item-group (click)="navigateToDetails($event)" class="office-block">
     <img [src]="colourStrip" />
     <ion-list>
       <ion-item lines="none"
         ><ion-label class="office-name" color="dark">
           {{ office.name }}
         </ion-label>
-        <ion-button fill="clear" slot="end">
+        <ion-button (click)="editOffice($event)" fill="clear" slot="end">
           <ion-icon slot="icon-only" src="/assets/icon/pen.svg"></ion-icon>
         </ion-button>
       </ion-item>
@@ -58,4 +57,3 @@
       </ion-item>
     </ion-list>
   </ion-item-group>
-</ion-nav-link>

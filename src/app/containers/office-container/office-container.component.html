@@ -13,7 +13,10 @@
     >
     </app-office-item>
   </ion-list>
-  <ion-nav-link [component]="nextComponent">
+  <ion-nav-link
+    [component]="nextComponent"
+    [componentProps]="{ office: null, isEdit: false }"
+  >
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button>
         <ion-icon name="add"></ion-icon>

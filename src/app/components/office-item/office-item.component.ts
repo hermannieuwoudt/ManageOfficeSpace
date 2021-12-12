@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { OfficeDetailContainerComponent } from 'src/app/containers/office-detail-container/office-detail-container.component';
 import { Office } from 'src/app/models/office';
+import { OfficeCreateComponent } from '../office-create/office-create.component';
 
 @Component({
   selector: 'app-office-item',
@@ -15,16 +16,12 @@ export class OfficeItemComponent implements OnInit {
   colourStrip: string;
   amount: number;
   showMoreDetail = false;
+  officeNav: any = document.querySelector('#officeNav');
 
   constructor() {}
 
   ngOnInit(): void {
     this.colourStrip = 'assets/colour-strips/blue.svg';
-    if (this.navigateToDetail) {
-      this.nextComponent = OfficeDetailContainerComponent;
-    } else {
-      this.nextComponent = '';
-    }
   }
 
   down(ev) {
@@ -35,5 +32,21 @@ export class OfficeItemComponent implements OnInit {
   up(ev) {
     ev.stopPropagation();
     this.showMoreDetail = false;
+  }
+
+  editOffice(ev) {
+    ev.stopPropagation();
+    this.officeNav.push(OfficeCreateComponent, {
+      office: this.office,
+      isEdit: true,
+    });
+  }
+
+  navigateToDetails(ev) {
+    if (this.navigateToDetail) {
+      this.officeNav.push(OfficeDetailContainerComponent, {
+        office: this.office,
+      });
+    }
   }
 }

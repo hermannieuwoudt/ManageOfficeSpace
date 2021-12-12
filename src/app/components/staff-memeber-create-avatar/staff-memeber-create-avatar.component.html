@@ -34,6 +34,7 @@
   <ion-toolbar>
     <ion-buttons>
       <ion-button
+        *ngIf="!isEdit"
         mode="ios"
         class="default-button"
         color="primary"
@@ -41,6 +42,16 @@
         (click)="addStaffMember()"
       >
         Add Staff Member
+      </ion-button>
+      <ion-button
+        *ngIf="isEdit"
+        mode="ios"
+        class="default-button"
+        color="primary"
+        fill="solid"
+        (click)="addStaffMember()"
+      >
+        Update Staff Member
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

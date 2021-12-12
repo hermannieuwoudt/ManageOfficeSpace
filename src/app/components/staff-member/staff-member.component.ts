@@ -51,7 +51,6 @@ export class StaffMemberComponent implements OnInit {
     popover.onDidDismiss().then((dataReturned) => {
       if (dataReturned !== null && dataReturned.data) {
         if (dataReturned.data === 'keep') {
-          console.log('keep');
         }
         if (dataReturned.data === 'delete') {
           this.staffMemberService.deleteStaffMember(this.staffMember);
