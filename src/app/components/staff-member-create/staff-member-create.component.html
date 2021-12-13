@@ -2,16 +2,19 @@
   <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button (click)="close()" color="primary" fill="clear">
-        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          src="/assets/icon/close-circle.svg"
+        ></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title *ngIf="isEdit">Edit Staff Memeber</ion-title>
-    <ion-title *ngIf="!isEdit">New Staff Memeber</ion-title>
+    <ion-title class="ion-no-padding" *ngIf="isEdit">Edit Staff Member</ion-title>
+    <ion-title class="ion-no-padding" *ngIf="!isEdit">New Staff Member</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="form">
-    <ion-item mode="ios" lines="full" class="ion-no-padding">
+  <form [formGroup]="form" style="margin-top: 24px">
+    <ion-item mode="ios" lines="none" class="ion-no-padding">
       <ion-input
         type="text"
         formControlName="firstName"
@@ -31,7 +34,7 @@
     >
       Please enter a first name for the staff memeber
     </ion-note>
-    <ion-item mode="ios" lines="full" class="ion-no-padding">
+    <ion-item mode="ios" lines="none" class="ion-no-padding">
       <ion-input
         type="text"
         formControlName="lastName"
@@ -58,7 +61,7 @@
     [currentStepDone]="form.valid"
   ></app-steps-indicator>
 </ion-content>
-<ion-footer>
+<ion-footer class="ion-no-border">
   <ion-toolbar>
     <ion-buttons>
       <ion-button

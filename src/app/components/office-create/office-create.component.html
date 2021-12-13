@@ -3,7 +3,10 @@
     <ion-buttons slot="start">
       <ion-nav-link routerDirection="back">
         <ion-button color="primary" fill="clear">
-          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+          <ion-icon
+            slot="icon-only"
+            src="/assets/icon/arrow-left.svg"
+          ></ion-icon>
         </ion-button>
       </ion-nav-link>
     </ion-buttons>
@@ -69,39 +72,43 @@
           maxLength="40"
         ></ion-input>
       </ion-item>
-      <ion-label> Office Colours </ion-label>
+      <ion-item class="ion-no-padding" style="margin-bottom: 8px" lines="none">
+        <ion-label class="office-colours"> Office Colours </ion-label>
+      </ion-item>
       <ion-item-group class="card-container">
-        <ion-card *ngFor="let colour of colours" (click)="selectColour(colour.colour)">
-          <ion-avatar [ngStyle]="{'background': colour.colour}" [ngClass]="{ active: colour.colour === selectedColour }">
+        <ion-card
+          *ngFor="let colour of colours"
+          (click)="selectColour(colour.colour)"
+        >
+          <ion-avatar
+            [ngStyle]="{ background: colour.colour }"
+            [ngClass]="{ active: colour.colour === selectedColour }"
+          >
           </ion-avatar>
         </ion-card>
       </ion-item-group>
+      <ion-buttons style="margin-top: 24px">
+        <ion-button
+          *ngIf="!isEdit"
+          mode="ios"
+          class="default-button"
+          color="primary"
+          fill="solid"
+          (click)="addOffice()"
+        >
+          Add Office
+        </ion-button>
+        <ion-button
+          *ngIf="isEdit"
+          mode="ios"
+          class="default-button"
+          color="primary"
+          fill="solid"
+          (click)="updateOffice()"
+        >
+          Update Office
+        </ion-button>
+      </ion-buttons>
     </ion-list>
   </form>
 </ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-button
-        *ngIf="!isEdit"
-        mode="ios"
-        class="default-button"
-        color="primary"
-        fill="solid"
-        (click)="addOffice()"
-      >
-        Add Office
-      </ion-button>
-      <ion-button
-        *ngIf="isEdit"
-        mode="ios"
-        class="default-button"
-        color="primary"
-        fill="solid"
-        (click)="updateOffice()"
-      >
-        Update Office
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>

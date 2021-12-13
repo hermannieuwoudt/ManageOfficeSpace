@@ -1,59 +1,71 @@
-  <ion-item-group (click)="navigateToDetails($event)" class="office-block">
-    <img [src]="colourStrip" />
-    <ion-list>
-      <ion-item lines="none"
-        ><ion-label class="office-name" color="dark">
-          {{ office.name }}
-        </ion-label>
-        <ion-button (click)="editOffice($event)" fill="clear" slot="end">
-          <ion-icon slot="icon-only" src="/assets/icon/pen.svg"></ion-icon>
-        </ion-button>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-img src="/assets/people.svg"></ion-img>
-        <ion-text class="staff-amount" color="dark">
-          <span style="font-weight: bold">{{ staffMembersCount }}</span> Staff
-          Members in Office
-        </ion-text>
-      </ion-item>
-      <ion-item-divider mode="md"></ion-item-divider>
-      <ion-item-group class="more-info-group">
-        <!-- <ion-img src="/assets/people.svg"></ion-img> -->
-        <ion-text color="dark">More info</ion-text>
-        <ion-icon
-          *ngIf="!showMoreDetail"
-          (click)="down($event)"
-          src="/assets/icon/arrow-down.svg"
-        ></ion-icon>
-        <ion-icon
-          *ngIf="showMoreDetail"
-          (click)="up($event)"
-          src="/assets/icon/arrow-up.svg"
-        ></ion-icon>
-      </ion-item-group>
-      <ion-item *ngIf="showMoreDetail" lines="none">
-        <ion-img src="/assets/phone.svg"></ion-img>
-        <ion-text class="staff-amount" color="dark">
-          {{ office.phoneNumber }}
-        </ion-text>
-      </ion-item>
-      <ion-item *ngIf="showMoreDetail" lines="none">
-        <ion-img src="/assets/email.svg"></ion-img>
-        <ion-text class="staff-amount" color="dark">
-          {{ office.emailAddress }}
-        </ion-text>
-      </ion-item>
-      <ion-item *ngIf="showMoreDetail" lines="none">
-        <ion-img src="/assets/people1.svg"></ion-img>
-        <ion-text class="staff-amount" color="dark">
-          Office Capacity : {{ office.maximumCapacity }}
-        </ion-text>
-      </ion-item>
-      <ion-item *ngIf="showMoreDetail" lines="none">
-        <ion-img src="/assets/location.svg"></ion-img>
-        <ion-text class="staff-amount" color="dark">
-          {{ office.physicalAddress }}
-        </ion-text>
-      </ion-item>
-    </ion-list>
-  </ion-item-group>
+<ion-item-group (click)="navigateToDetails($event)" class="office-block">
+  <div class="colour-patern">
+    <div
+      class="colour1 colour-strip"
+      [ngStyle]="{ background: office.colour }"
+    ></div>
+    <div
+      class="colour-strip colour2"
+      [ngStyle]="{ background: office.colour }"
+    ></div>
+    <div
+      class="colour-strip colour3"
+      [ngStyle]="{ background: office.colour }"
+    ></div>
+  </div>
+  <ion-list>
+    <ion-item lines="none"
+      ><ion-label class="office-name" color="dark">
+        {{ office.name }}
+      </ion-label>
+      <ion-button (click)="editOffice($event)" fill="clear" slot="end">
+        <ion-icon slot="icon-only" src="/assets/icon/pen.svg"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-img src="/assets/people.svg"></ion-img>
+      <ion-text class="staff-amount" color="dark">
+        <span style="font-weight: bold">{{ staffMembersCount }}</span> Staff
+        Members in Office
+      </ion-text>
+    </ion-item>
+    <div class="divider"></div>
+    <ion-item-group class="more-info-group">
+      <ion-text color="dark">More info</ion-text>
+      <ion-icon
+        *ngIf="!showMoreDetail"
+        (click)="down($event)"
+        src="/assets/icon/arrow-down.svg"
+      ></ion-icon>
+      <ion-icon
+        *ngIf="showMoreDetail"
+        (click)="up($event)"
+        src="/assets/icon/arrow-up.svg"
+      ></ion-icon>
+    </ion-item-group>
+    <ion-item *ngIf="showMoreDetail" lines="none">
+      <ion-img src="/assets/phone.svg"></ion-img>
+      <ion-text class="staff-amount" color="dark">
+        {{ office.phoneNumber }}
+      </ion-text>
+    </ion-item>
+    <ion-item *ngIf="showMoreDetail" lines="none">
+      <ion-img src="/assets/email.svg"></ion-img>
+      <ion-text class="staff-amount" color="dark">
+        {{ office.emailAddress }}
+      </ion-text>
+    </ion-item>
+    <ion-item *ngIf="showMoreDetail" lines="none">
+      <ion-img src="/assets/people1.svg"></ion-img>
+      <ion-text class="staff-amount" color="dark">
+        Office Capacity : {{ office.maximumCapacity }}
+      </ion-text>
+    </ion-item>
+    <ion-item *ngIf="showMoreDetail" lines="none">
+      <ion-img src="/assets/location.svg"></ion-img>
+      <ion-text class="staff-amount" color="dark">
+        {{ office.physicalAddress }}
+      </ion-text>
+    </ion-item>
+  </ion-list>
+</ion-item-group>

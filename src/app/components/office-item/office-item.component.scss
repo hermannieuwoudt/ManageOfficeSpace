@@ -1,19 +1,22 @@
 ion-list {
   width: 100%;
+  background: #ffff;
+  border-radius: 0 8px 8px 0;
 }
 
 ion-icon {
   width: 17px;
 }
 
-ion-item-divider {
-  min-height: 6px;
-  margin: auto;
-  border-bottom: 0.4px solid #0D4477;
+ion-item {
+  --background: #ffff;
 }
 
-
-
+.divider {
+  border-bottom: 0.4px solid #0D4477;
+  margin: 0 16px 0 22px;
+  opacity: 0.4;
+}
 .office-block {
   display: flex;
   margin: 16px;
@@ -35,7 +38,6 @@ img {
 .staff-amount {
   margin-left: 12px;
   font-size: 12px;
-  font-family: "Inter";
 }
 
 .more-info-group {
@@ -45,7 +47,30 @@ img {
 
   ion-text {
     font-size: 12px;
-    font-family: Inter;
     margin-right: 12px;
   }
+}
+
+.colour-patern{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.colour-strip{
+  width: 12px;
+  height: 100%;
+}
+
+.colour1{
+  border-top-left-radius: 8px;
+}
+
+.colour2{
+  opacity: 0.8;
+}
+
+.colour3{
+  border-bottom-left-radius: 8px;
+  opacity: 0.5;
 }

@@ -42,12 +42,14 @@
   letter-spacing: normal;
   text-transform: uppercase;
   width: 100%;
+  --box-shadow: none;
+  width: 232px;
+  margin: auto !important;
 }
 
-// ion-content {
-//   --background: #f8fafc;
-// }
-
-ion-list {
-  background: #f8fafc !important;
+ion-searchbar ion-icon {
+  right: 16px !important;
+  left: auto !important;
 }
+
+

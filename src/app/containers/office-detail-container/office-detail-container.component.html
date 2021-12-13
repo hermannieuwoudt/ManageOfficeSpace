@@ -3,11 +3,14 @@
     <ion-buttons slot="start">
       <ion-nav-link routerDirection="back">
         <ion-button color="primary" fill="clear">
-          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+          <ion-icon
+            slot="icon-only"
+            src="/assets/icon/arrow-left.svg"
+          ></ion-icon>
         </ion-button>
       </ion-nav-link>
     </ion-buttons>
-    <ion-title>Office</ion-title>
+    <ion-title class="ion-no-padding">Office</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -19,6 +22,14 @@
   </app-office-item>
   <ion-searchbar mode="ios" placeholder="Search"></ion-searchbar>
   <ion-list>
+    <ion-item lines="none">
+      <ion-label class="staff-members" color="dark">
+        Staff Members in Office
+      </ion-label>
+      <ion-label class="staff-members-count" color="dark" slot="end">
+        {{ staffMembers?.length }}
+      </ion-label>
+    </ion-item>
     <app-staff-member
       [staffMember]="staffMember"
       *ngFor="let staffMember of staffMembers"
@@ -31,3 +42,4 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
+<ion-footer> </ion-footer>

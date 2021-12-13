@@ -13,7 +13,6 @@ export class OfficeItemComponent implements OnInit {
   @Input() staffMembersCount: number;
   @Input() navigateToDetail: boolean;
   nextComponent: any;
-  colourStrip: string;
   amount: number;
   showMoreDetail = false;
   officeNav: any = document.querySelector('#officeNav');
@@ -21,7 +20,6 @@ export class OfficeItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.colourStrip = 'assets/colour-strips/blue.svg';
   }
 
   down(ev) {

@@ -37,3 +37,16 @@ ion-card {
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
+
+  ion-title {
+    font-weight: 800;
+    font-size: 24px;
+    --color: #000;
+  }
+  
+  .avatar-label {
+    font-weight: 600;
+    font-size: 24px !important;
+    line-height: 29px;
+    color: #000000;
+  }

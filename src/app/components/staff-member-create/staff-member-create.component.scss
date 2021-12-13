@@ -1,0 +1,24 @@
+ion-input {
+  color: rgba(30, 41, 59, 0.6);
+  border: 1px solid #f1f9ff;
+  border-radius: 8px;
+  --background: #ffffff;
+  --padding-start: 16px !important;
+  --padding-top: 12px;
+  --padding-end: 16px;
+  --padding-bottom: 12px;
+}
+
+ion-list {
+  padding: 19px;
+}
+
+ion-item {
+  margin-bottom: 12px;
+}
+
+ion-title {
+  font-weight: 800;
+  font-size: 24px;
+  --color: #000;
+}
