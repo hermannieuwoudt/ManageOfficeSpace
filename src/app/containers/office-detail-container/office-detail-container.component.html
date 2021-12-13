@@ -20,7 +20,11 @@
     [navigateToDetail]="false"
   >
   </app-office-item>
-  <ion-searchbar mode="ios" placeholder="Search"></ion-searchbar>
+  <ion-searchbar
+    mode="ios"
+    placeholder="Search"
+    (ionChange)="searchStaff($event)"
+  ></ion-searchbar>
   <ion-list>
     <ion-item lines="none">
       <ion-label class="staff-members" color="dark">
@@ -32,7 +36,7 @@
     </ion-item>
     <app-staff-member
       [staffMember]="staffMember"
-      *ngFor="let staffMember of staffMembers"
+      *ngFor="let staffMember of staffMembers | searchFilterPipe: searchString"
     >
     </app-staff-member>
   </ion-list>

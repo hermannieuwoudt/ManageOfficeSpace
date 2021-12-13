@@ -14,13 +14,14 @@ import { OfficeContainerComponent } from './containers/office-container/office-c
 import { OfficeDetailContainerComponent } from './containers/office-detail-container/office-detail-container.component';
 import { OfficePageComponent } from './containers/office-page/office-page.component';
 import { ListPopoverComponent } from './components/list-popover/list-popover.component';
-import { DeleteStaffMemeberPopOverComponent } from './components/delete-staff-memeber-pop-over/delete-staff-memeber-pop-over.component';
+import { DeleteStaffMemberPopOverComponent } from './components/delete-staff-member-pop-over/delete-staff-member-pop-over.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StaffMemeberCreateAvatarComponent } from './components/staff-memeber-create-avatar/staff-memeber-create-avatar.component';
+import { StaffMemberCreateAvatarComponent } from './components/staff-member-create-avatar/staff-member-create-avatar.component';
 import { StepsIndicatorComponent } from './components/steps-indicator/steps-indicator.component';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +33,10 @@ import { environment } from 'src/environments/environment';
     OfficeDetailContainerComponent,
     OfficePageComponent,
     ListPopoverComponent,
-    DeleteStaffMemeberPopOverComponent,
-    StaffMemeberCreateAvatarComponent,
+    DeleteStaffMemberPopOverComponent,
+    StaffMemberCreateAvatarComponent,
     StepsIndicatorComponent,
+    SearchFilterPipe,
   ],
   entryComponents: [],
   imports: [

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { StaffMember } from 'src/app/models/staff-memeber';
-import { StaffMemberService } from 'src/app/services/staff-memeber.service';
-import { DeleteStaffMemeberPopOverComponent } from '../delete-staff-memeber-pop-over/delete-staff-memeber-pop-over.component';
+import { StaffMember } from 'src/app/models/staff-member';
+import { StaffMemberService } from 'src/app/services/staff-member.service';
+import { DeleteStaffMemberPopOverComponent } from '../delete-staff-member-pop-over/delete-staff-member-pop-over.component';
 import { ListPopoverComponent } from '../list-popover/list-popover.component';
 import { StaffMemberCreateComponent } from '../staff-member-create/staff-member-create.component';
 
@@ -43,7 +43,7 @@ export class StaffMemberComponent implements OnInit {
 
   async deleteStaffMember() {
     const popover = await this.popoverController.create({
-      component: DeleteStaffMemeberPopOverComponent,
+      component: DeleteStaffMemberPopOverComponent,
       translucent: true,
       mode: 'md',
     });

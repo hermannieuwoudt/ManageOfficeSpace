@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { StaffMemberCreateComponent } from '../components/staff-member-create/staff-member-create.component';
-import { StaffMemeberCreateAvatarComponent } from '../components/staff-memeber-create-avatar/staff-memeber-create-avatar.component';
+import { StaffMemberCreateAvatarComponent } from '../components/staff-member-create-avatar/staff-member-create-avatar.component';
 import { StaffMemberApiService } from '../core/api-services/staff-member-api.service';
 import { Office } from '../models/office';
-import { StaffMember } from '../models/staff-memeber';
+import { StaffMember } from '../models/staff-member';
 
 @Injectable({
   providedIn: 'root',
@@ -62,7 +62,7 @@ export class StaffMemberService {
     officeId: string
   ) {
     const popover = await this.popoverController.create({
-      component: StaffMemeberCreateAvatarComponent,
+      component: StaffMemberCreateAvatarComponent,
       translucent: true,
       mode: 'md',
       componentProps: {

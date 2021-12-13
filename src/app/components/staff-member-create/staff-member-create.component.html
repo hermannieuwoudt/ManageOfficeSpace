@@ -25,15 +25,6 @@
         maxLength="40"
       ></ion-input>
     </ion-item>
-    <ion-note
-      *ngIf="
-        form?.controls['firstName']?.touched &&
-        form?.controls['firstName']?.errors
-      "
-      class="form-error"
-    >
-      Please enter a first name for the staff memeber
-    </ion-note>
     <ion-item mode="ios" lines="none" class="ion-no-padding">
       <ion-input
         type="text"
@@ -45,15 +36,6 @@
         maxLength="40"
       ></ion-input>
     </ion-item>
-    <ion-note
-      *ngIf="
-        form?.controls['lastName']?.touched &&
-        form?.controls['lastName']?.errors
-      "
-      class="form-error"
-    >
-      Please enter a last name for the staff memeber
-    </ion-note>
   </form>
   <app-steps-indicator
     [stepsAmount]="2"

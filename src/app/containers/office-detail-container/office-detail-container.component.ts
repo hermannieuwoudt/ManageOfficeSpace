@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StaffMemberApiService } from 'src/app/core/api-services/staff-member-api.service';
 import { Office } from 'src/app/models/office';
-import { StaffMember } from 'src/app/models/staff-memeber';
-import { StaffMemberService } from 'src/app/services/staff-memeber.service';
+import { StaffMember } from 'src/app/models/staff-member';
+import { StaffMemberService } from 'src/app/services/staff-member.service';
 
 @Component({
   selector: 'app-office-detail-container',
@@ -12,6 +12,7 @@ import { StaffMemberService } from 'src/app/services/staff-memeber.service';
 export class OfficeDetailContainerComponent implements OnInit {
   @Input() office: Office;
   staffMembers: StaffMember[];
+  searchString: string;
   constructor(
     private staffMemberService: StaffMemberService,
     private staffMemberApiService: StaffMemberApiService
@@ -30,5 +31,9 @@ export class OfficeDetailContainerComponent implements OnInit {
 
   addStaffMember() {
     this.staffMemberService.editCreateStaffMember(false, null, this.office.id);
+  }
+
+  searchStaff(ev) {
+    this.searchString = ev.target.value;
   }
 }

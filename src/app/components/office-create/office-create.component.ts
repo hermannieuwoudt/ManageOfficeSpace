@@ -21,10 +21,10 @@ export class OfficeCreateComponent implements OnInit {
   colours = colours;
   selectedColour: string;
   form: FormGroup;
+  officeNav: any = document.querySelector('#officeNav');
   constructor(
     private formBuilder: FormBuilder,
     private officeService: OfficeService,
-    public navCtrl: NavController
   ) {}
 
   ngOnInit(): void {
@@ -77,12 +77,12 @@ export class OfficeCreateComponent implements OnInit {
 
   selectColour(colour: string) {
     this.selectedColour = colour;
-    // this.close({ avatar });
+
   }
 
   addOffice() {
     this.officeService.createOffice(this.buildOffice());
-    this.navCtrl.pop();
+    this.officeNav.pop();
   }
 
   updateOffice() {
@@ -90,7 +90,7 @@ export class OfficeCreateComponent implements OnInit {
       ...this.buildOffice(),
       id: this.office.id,
     });
-    this.navCtrl.pop();
+    this.officeNav.pop();
   }
 
   buildOffice(): Office {

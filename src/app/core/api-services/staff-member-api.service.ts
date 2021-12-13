@@ -10,7 +10,7 @@ import {
   updateDoc,
   deleteDoc,
 } from '@angular/fire/firestore';
-import { StaffMember } from 'src/app/models/staff-memeber';
+import { StaffMember } from 'src/app/models/staff-member';
 
 @Injectable({
   providedIn: 'root',

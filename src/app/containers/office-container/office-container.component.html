@@ -9,7 +9,7 @@
       [office]="office"
       [staffMembersCount]="getStaffMembersCount(office)"
       [navigateToDetail]="true"
-      *ngFor="let office of offices"
+      *ngFor="let office of offices$ | async"
     >
     </app-office-item>
   </ion-list>

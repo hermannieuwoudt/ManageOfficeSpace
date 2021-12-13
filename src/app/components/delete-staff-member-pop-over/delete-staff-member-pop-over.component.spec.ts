@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteStaffMemeberPopOverComponent } from './delete-staff-memeber-pop-over.component';
+import { DeleteStaffMemberPopOverComponent } from './delete-staff-member-pop-over.component';
 
 describe('DeleteStaffMemeberPopOverComponent', () => {
-  let component: DeleteStaffMemeberPopOverComponent;
-  let fixture: ComponentFixture<DeleteStaffMemeberPopOverComponent>;
+  let component: DeleteStaffMemberPopOverComponent;
+  let fixture: ComponentFixture<DeleteStaffMemberPopOverComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteStaffMemeberPopOverComponent ]
+      declarations: [ DeleteStaffMemberPopOverComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteStaffMemeberPopOverComponent);
+    fixture = TestBed.createComponent(DeleteStaffMemberPopOverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

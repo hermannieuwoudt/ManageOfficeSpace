@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ModalController, PopoverController } from '@ionic/angular';
-import { StaffMember } from 'src/app/models/staff-memeber';
+import { StaffMember } from 'src/app/models/staff-member';
 
 @Component({
   selector: 'app-staff-member-create',
