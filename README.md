@@ -23,6 +23,7 @@ The app uses Ionic, Angular and Firebase.
 
 - Run the app
   Run `ng serve`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  OR
   Run `ionic serve`. Navigate to `http://localhost:8100`. The app will automatically reload if you change any of the source files.
 
 ## Deploy
