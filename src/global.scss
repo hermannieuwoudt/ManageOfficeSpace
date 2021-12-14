@@ -27,7 +27,6 @@
 
 .popover-wrapper {
   .popover-content {
-    width: calc(100% - 30px) !important;
     padding: 12px;
     border-radius: 8px;
   }
@@ -52,7 +51,29 @@ ion-searchbar ion-icon {
   left: auto !important;
 }
 
-ion-app {
-  max-width: 800px;
-  margin: auto;
+@media (min-width: 700px) {
+  ion-app {
+    width: 700px;
+    margin: auto;
+    position: relative;
+  }
+
+  .popover-wrapper {
+    .popover-content {
+      left: 0 !important;
+      top: 0 !important;
+      position: relative;
+      width: 676px;
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .popover-wrapper {
+    .popover-content {
+      width: calc(100% - 30px) !important;
+      max-width: 676px;
+    }
+  }
 }
